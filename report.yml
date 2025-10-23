@@ -1,0 +1,37 @@
+---
+# Steps to take
+# Create Directory with 755 perms
+# Download file from link to homeDir/lab/transaction_list
+# replace all occurences of #blanklin with a newline esc char
+# Output file downloaded
+# error msg when failed download " try again later dwnld failed"
+# always output attempt complete
+
+- hosts: all
+  tasks:
+    - block: 
+      - name: create Directory
+        file:
+          path: /home/ansible/lab-error-handleing #use dir_name var instead
+          state: Directory
+          mode: 755
+        debug:
+          msg: "dir {{ dir_name }} created"
+      - name: download file
+        get_url:
+          url: https://bit.ly/3dtJtR7
+          dest: /home/ansible/lab-error-handleing/transaction_list
+          debug:
+            msg: "Download of mysterious file was successful"
+      - name: replace blank space in file
+        replace:
+          source: /home/ansible/lab-error-handleing/transaction_list
+          regex: "#BLANKLINE"
+          replace: "\n"
+    - rescue: 
+      debug:
+        msg: "Download failed, try again later....."
+    - always:
+      - debug: 
+        msg: "Attempt Complete"
+
