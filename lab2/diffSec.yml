@@ -3,7 +3,6 @@
 
 - hosts: all
   become: yes
-  become_user: root
   vars:
     file_name: "hardened.j2"
     dest_dir: "/etc/sudoers.d/hardened"
