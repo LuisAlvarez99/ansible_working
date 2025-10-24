@@ -1,6 +1,7 @@
 ---
 # Start of YAML file for Ansible Templating lab
 - hosts: all
+  become: yes
   become_user: root
   vars:
     file_name: "hardened.j2"
