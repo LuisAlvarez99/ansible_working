@@ -1,0 +1,20 @@
+---
+# Start of YAML file for Ansible Templating lab
+- hosts: all
+  become_user: root
+  vars:
+    file_name: "hardened.j2"
+    dest_dir: "/etc/sudoers.d/hardened"
+- tasks:
+  - name: create dir_name
+    file:
+      path: /home/ansible/lab-templates
+      state: present
+      mode: 755
+
+  - name: deploy tempalte to dir
+    template: "src = ./hardened.j2 dest = /etc/sudoers.d/hardened mode = 755 validate = true"
+    debug:
+      msg: " {{ file_name }} was deployed successfully to {{ dest_dir }}"
+
+  - name: set file perms
