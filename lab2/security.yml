@@ -10,7 +10,7 @@
     - name: create dir_name
       file:
         path: /home/ansible/lab-templates
-        state: present
+        state: directory
         mode: 755
       debug:
         msg: " created lab-templates dir"
