@@ -11,6 +11,8 @@
       path: /home/ansible/lab-templates
       state: present
       mode: 755
+    debug:
+      msg: " created lab-templates dir"
 
   - name: deploy tempalte to dir
     template: 
@@ -20,5 +22,3 @@
       validate: true
     debug:
       msg: " {{ file_name }} was deployed successfully to {{ dest_dir }}"
-
-  - name: set file perms
