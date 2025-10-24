@@ -1,6 +1,4 @@
 ---
-# Start of YAML file for Ansible Templating lab This is the file that you wrote
-
 - hosts: all
   become: yes
   vars:
