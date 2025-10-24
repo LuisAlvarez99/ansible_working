@@ -13,7 +13,11 @@
       mode: 755
 
   - name: deploy tempalte to dir
-    template: "src = ./hardened.j2 dest = /etc/sudoers.d/hardened mode = 755 validate = true"
+    template: 
+      src: ./hardened.j2 
+      dest: /etc/sudoers.d/hardened 
+      mode: 755 
+      validate: true
     debug:
       msg: " {{ file_name }} was deployed successfully to {{ dest_dir }}"
 
