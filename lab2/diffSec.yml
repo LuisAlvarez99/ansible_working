@@ -8,18 +8,18 @@
   tasks:
     - name: Create directory for template deployment
       block:
-        file:
-          path: /home/ansible/lab-templates
-          state: directory
-          mode: 755
-        debug:
-          msg: " created lab-templates dir"
+        - file:
+            path: /home/ansible/lab-templates
+            state: directory
+            mode: 755
+        - debug:
+            msg: " created lab-templates dir"
     - name: deploy tempalte to dir
       block:
-        template:
-          src: ./hardened.j2
-          dest: /etc/sudoers.d/hardened
-          mode: 755
-          validate: true
-        debug:
-          msg: " {{ file_name }} was deployed successfully to {{ dest_dir }}"
+        - template:
+            src: ./hardened.j2
+            dest: /etc/sudoers.d/hardened
+            mode: 755
+            validate: true
+        - debug:
+            msg: " {{ file_name }} was deployed successfully to {{ dest_dir }}"
