@@ -19,5 +19,6 @@
         dest: /etc/sudoers.d/hardened
         mode: 755
         validate: true
+    - name: Show debug msg
       debug:
         msg: " {{ file_name }} was deployed successfully to {{ dest_dir }}"
