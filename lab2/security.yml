@@ -6,7 +6,6 @@
     file_name: "hardened.j2"
     dest_dir: "/etc/sudoers.d/hardened"
 - tasks:
-  block:
     - name: create dir_name
       file:
         path: /home/ansible/lab-templates
